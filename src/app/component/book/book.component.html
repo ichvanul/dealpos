@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="section-book-title">
+        <h3 style="margin: auto;">Books</h3>
+    </div>
+
+    <div class="section-box-book">
+        <div class="col-md-12">
+            <div class="row" *ngIf="(book.items$|async).length > 0">
+                <div class="box-book" *ngFor="let book of book.items$ | async" >
+                    <a (click)="reviews(book)" style="cursor: pointer;">
+                        <h5>{{book.name}}</h5>
+                        <span class="color-year">{{book.year}}</span>
+                    </a>                    
+                </div>
+            </div>
+        </div>        
+    </div>
+
+    <!-- <div class="section-box-book">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="box-book">
+                    <a *ngFor="let item of bookList"  style="cursor: pointer;">
+                        <h5>{{item.name}}</h5>
+                        <span class="color-year">{{item.year}}</span>
+                    </a>                    
+                </div>
+            </div>
+        </div>        
+    </div> -->
+</div>

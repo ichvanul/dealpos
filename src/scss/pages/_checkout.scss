@@ -1,0 +1,293 @@
+/*
+// .checkout
+*/
+@import '../variables';
+@import '../mixins/direction';
+
+
+.checkout {}
+.checkout__totals {
+    font-size: 15px;
+    line-height: 19px;
+    width: 100%;
+    margin-bottom: 40px;
+
+    th, td {
+        padding: 4px 0;
+    }
+
+    th {
+        font-weight: $font-weight-bold;
+    }
+
+    tr > :first-child {
+        @include direction {
+            #{$padding-inline-end}: 20px;
+        }
+    }
+
+    tr > :last-child {
+        white-space: nowrap;
+
+        @include direction {
+            text-align: $inline-end;
+        }
+    }
+}
+.checkout__totals-header {
+    tr:last-child > * {
+        padding-bottom: 10px;
+    }
+}
+.checkout__totals-products {
+    tr:first-child > * {
+        padding-top: 20px;
+        border-top: 1px solid $card-divider-color;
+    }
+    tr:last-child > * {
+        padding-bottom: 20px;
+        border-bottom: 1px solid $card-divider-color;
+    }
+}
+.checkout__totals-subtotals {
+    tr:first-child > * {
+        padding-top: 20px;
+    }
+    tr:last-child > * {
+        padding-bottom: 20px;
+        border-bottom: 1px solid $card-divider-color;
+    }
+}
+.checkout__totals-footer {
+    font-size: 24px;
+
+    th {
+        font-weight: $font-weight-medium;
+    }
+
+    tr:first-child > * {
+        padding-top: 20px;
+    }
+}
+
+
+
+
+.payment-methods {
+    margin-bottom: 30px;
+}
+.payment-methods__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.payment-methods__item {
+    border-radius: $payment-methods-border-radius;
+    background: $payment-methods-default-bg;
+    border: $payment-methods-default-border;
+
+    &:hover {
+        background: $payment-methods-hover-bg;
+        border: $payment-methods-hover-border;
+    }
+
+    & + & {
+        margin-top: 6px;
+    }
+}
+.payment-methods__item-header {
+    display: flex;
+    align-items: center;
+    padding: 8px 14px;
+    font-size: 15px;
+    font-weight: $font-weight-medium;
+    letter-spacing: .01em;
+    cursor: pointer;
+    margin-bottom: 0;
+}
+.payment-methods__item-radio {
+    @include direction {
+        #{$margin-inline-end}: 10px;
+    }
+}
+.payment-methods__item-container {
+    overflow: hidden;
+    height: 0;
+    transition: height .2s;
+}
+.payment-methods__item-description {
+    font-size: 15px;
+    line-height: 20px;
+    padding: 2px 16px 13px 16px;
+}
+.payment-methods__item--active {
+    &, &:hover {
+        background: $payment-methods-active-bg;
+        border: $payment-methods-active-border;
+    }
+
+    .payment-methods__item-container {
+        height: auto;
+    }
+}
+
+.checkout__agree {
+    margin-bottom: 36px;
+
+    a:hover {
+        text-decoration: underline;
+    }
+}
+
+.payment-popup {
+    min-width: 450px;
+    height: calc(100vh - 40px);
+    max-height: 660px;
+  }
+
+  .navbar-container {
+    height: 52px;
+    position: relative;
+
+    .navbar-wrapper {
+      max-width: 40%;
+      left: 50%;
+      transform: translateX(-50%);
+      -webkit-transform: translateX(-50%);
+
+      .css-vp0001 {
+        width: 100%;
+        height: 52px;
+        color: rgba(0, 0, 0, 0.7);
+        background-color: rgb(255, 255, 255);
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 3px 0px;
+        transition: background-color 0.24s ease 0s;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+
+        .css-vp23n2 {
+          width: 52px;
+          height: 100%;
+          display: flex;
+          position: relative;
+          cursor: pointer;
+
+          &:before {
+            content: '';
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            background-size: 20px 20px;
+            background-image: url('https://api.hsgmoto.com/api/images/close.png');
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-repeat: no-repeat;
+            background-position: center center;
+            margin: auto;
+          }
+        }
+
+        .css-vp0023 {
+          min-width: 0px;
+          padding-right: 0px;
+          flex: 1 1 0%;
+
+          &:last-child {
+            padding-right: 16px;
+          }
+
+          .css-vp214xz {
+            font-size: 1.21429rem;
+            line-height: 1.3;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            font-weight: 500;
+            padding-left: 0px;
+            overflow: hidden;
+            margin: 0px;
+          }
+        }
+
+      }
+    }
+
+    .vp-23a2ic5 {
+      width: 100%;
+      // top: 0px;
+      // right: 0px;
+      // left: 0px;
+      position: fixed;
+      z-index: 40;
+    }
+  }
+
+  .rincian {
+    // margin-bottom: 10px;
+
+    .box-rincian {
+      margin-top: 15px;
+
+      .rincian-list {
+        display: grid;
+        list-style: none;
+        padding-left: 15px;
+        width: 100%;
+
+        .rincian-name {
+          padding: 10px 0;
+          font-size: 14px;
+          font-weight: 400;
+
+          &.rincian-total {
+            padding: 15px 0;
+          }
+        }
+      }
+
+      .harga-list {
+        display: grid;
+        list-style: none;
+        width: 100%;
+        text-align: right;
+        // padding-left: 15px;
+
+        .harga {
+          padding: 7px 0;
+          font-size: 14px;
+          font-weight: 600;
+
+          &.harga-total {
+            padding: 15px 0;
+          }
+        }
+      }
+    }
+  }
+
+  .custom-modalbox {
+    mat-dialog-container {
+        display: block;
+        padding: unset;
+        border-radius: 4px;
+        box-sizing: border-box;
+        overflow: auto;
+        outline: 0;
+        width: 100%;
+        height: 100%;
+        min-height: inherit;
+        max-height: inherit;
+        padding-top: unset;
+    }
+
+    .cdk-overlay-dark-backdrop {
+        background: rgba(0, 0, 0, 0.7);
+    }
+}
